@@ -7,28 +7,33 @@ package org.example;
 * 2. Encarga de relacionar personal
 * */
 
-import org.example.domains.Persona;
-import org.example.services.Enfermero;
-import org.example.services.Medico;
+import org.example.domains.*;
+
+import java.util.Map;
 
 public class Main {
   public static void main(String[] args) {
 
-    Persona persona =
-        new Medico("Juan", "Perez", "1000000");
-    //Medico medico3 = new Persona();
-    Medico medico2 = new Medico(
-        "Daniela", "Molina", "2000000"
-    );
+    Medico empleado =
+        new Medico("Juan", "Perez", 1000000L);
 
-    System.out.println("La persona "
-        + persona.getApellido()
-        + " tiene un sueldo de "
-        + persona.getSueldo());
+    Empleado empleado2 =
+        new Enfermero("Maria", "Lopez", 2000000L);
 
-    System.out.println("La persona "
-        + medico2.getApellido()
-        + " tiene un sueldo de "
-        + medico2.getSueldo());
+    Empleado empleado3 =
+        new Aseador("Juana", "Morales", 2000000L);
+
+    Empleado paciente =
+        new Paciente("Andres", "Lopez", 0L,
+            Map.of("dolor de cabeza", "aspirina"));
+
+    // 1. Metodo abstracto original, sin sobre carga
+    //empleado.practice();
+
+    // 2. Metodo de clase abstracta sobreescribo (con Override)
+    //empleado.practice("Juan Esteban");
+    empleado.practice("Juan Esteban", empleado3);
+    //empleado2.practice("Maria Camila");
+    //empleado3.practice("Maria Camila");
   }
 }
