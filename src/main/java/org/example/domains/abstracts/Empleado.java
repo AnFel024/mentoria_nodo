@@ -1,4 +1,4 @@
-package org.example.domains;
+package org.example.domains.abstracts;
 
 /*
 * Modificadores aplican a clases (interfaces, abstractas),
@@ -11,8 +11,8 @@ public abstract class Empleado {
   // Atributos
   private String name;
   private String lastName;
-  private Long salary;
-  private Double gratification;
+  private long salary;
+  private double gratification;
 
   // Constructor
 
@@ -28,7 +28,7 @@ public abstract class Empleado {
   // Metodos
   public void setSalary(Long salary) {
     this.salary = salary;
-    setGratification(salary * 0.1);
+    this.makeGratification();
   }
 
   public Long getSalary() {
@@ -51,10 +51,10 @@ public abstract class Empleado {
     return lastName;
   }
 
-  private void setGratification(Double gratification) {
+  protected void setGratification(Double gratification) {
     this.gratification = gratification;
   }
-  
+
   public Double getGratification() {
     return gratification;
   }
@@ -65,6 +65,6 @@ public abstract class Empleado {
     System.out.println("El empleado " + name + " esta trabajando!");
   }
 
-  protected abstract Double getGratification(double salary);
+  protected abstract void makeGratification();
 
 }

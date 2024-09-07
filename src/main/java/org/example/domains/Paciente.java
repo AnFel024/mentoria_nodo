@@ -1,5 +1,7 @@
 package org.example.domains;
 
+import org.example.domains.abstracts.Empleado;
+
 import java.util.Map;
 
 public class Paciente extends Empleado {
@@ -20,9 +22,10 @@ public class Paciente extends Empleado {
     System.out.println("El paciente esta en consulta!");
   }
 
+
   @Override
-  protected Double getGratification(double salary) {
-    return 0.0;
+  protected void makeGratification() {
+    setGratification(getSalary() * 0.0);
   }
 
   public Map<String, String> getHistory() {

@@ -1,5 +1,7 @@
 package org.example.domains;
 
+import org.example.domains.abstracts.Empleado;
+
 public class Enfermero extends Empleado {
 
   public Enfermero() {
@@ -15,8 +17,8 @@ public class Enfermero extends Empleado {
   }
 
   @Override
-  protected Double getGratification(double salary) {
-    return 0.2;
+  protected void makeGratification() {
+    super.setGratification(super.getSalary() * 0.2);
   }
 
   protected void practice(Paciente paciente) {

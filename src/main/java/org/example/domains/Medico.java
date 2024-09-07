@@ -1,5 +1,7 @@
 package org.example.domains;
 
+import org.example.domains.abstracts.Empleado;
+
 public class Medico extends Empleado {
 
   private String speciality;
@@ -16,7 +18,6 @@ public class Medico extends Empleado {
     System.out.println("El medico esta operando!");
   }
 
-  @Override
   protected Double getGratification(double salary) {
     return 0.1;
   }
@@ -24,6 +25,11 @@ public class Medico extends Empleado {
   @Override
   public void practice(String name) {
     System.out.println("El medico " + name + " esta en consulta!");
+  }
+
+  @Override
+  protected void makeGratification() {
+    super.setGratification(super.getSalary() * 0.1);
   }
 
   public void practice(String nombre, Empleado paciente) {
@@ -34,4 +40,5 @@ public class Medico extends Empleado {
   public void setSpeciality(String speciality) {
     this.speciality = speciality;
   }
+
 }
