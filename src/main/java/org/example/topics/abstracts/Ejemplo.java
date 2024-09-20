@@ -1,4 +1,4 @@
-package org.example.domains;
+package org.example.topics.abstracts;
 
 public class Ejemplo extends Medico  {
 

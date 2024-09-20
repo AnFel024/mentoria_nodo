@@ -1,31 +1,33 @@
 package org.example;
 
-import org.example.topics.events.NumbersConsumer;
-import org.example.topics.events.NumbersProducer;
-
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
+import lombok.SneakyThrows;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.SimpleTimeZone;
 
 public class Main {
+
+  @SneakyThrows
   public static void main(String[] args) {
-    int BOUND = 10;
-    int N_PRODUCERS = 4;
-    int N_CONSUMERS = Runtime.getRuntime().availableProcessors();
-    int poisonPill = Integer.MAX_VALUE;
-    int poisonPillPerProducer = N_CONSUMERS / N_PRODUCERS;
-    int mod = N_CONSUMERS % N_PRODUCERS;
-
-    BlockingQueue<Integer> queue = new LinkedBlockingQueue<>(BOUND);
-
-    for (int i = 1; i < N_PRODUCERS; i++) {
-      new Thread(new NumbersProducer(queue, poisonPill, poisonPillPerProducer)).start();
+    boolean t = true;
+    while (t) {
+      try { // La definicion de codigo que se puede romper
+        String a = "null";
+        a.length();
+        int b = 1/1;
+        List<Integer> list = new ArrayList<>(5);
+        list.get(6);
+      } catch (Exception e) { // Si se rompe el codigo por la excepcion tal, sigua este paso a paso
+        System.out.println("Caught: " + e.getMessage());
+      } finally { // Despues de fallar, ejecuta este codigo
+        System.out.println("Excepcion encontrada, se detuvo el flujo sin parar el sistema");
+      }
+      System.out.println("El programa sigue funcionando");
+      Thread.sleep(10000);
     }
-
-    for (int j = 0; j < N_CONSUMERS; j++) {
-      new Thread(new NumbersConsumer(queue, poisonPill)).start();
-    }
-
-    new Thread(new NumbersProducer(queue, poisonPill, poisonPillPerProducer + mod)).start();
   }
 
+  public int dividir(int a, int b) {
+    return a / b; // Esto lanzará ArithmeticException si b es 0
+  }
 }

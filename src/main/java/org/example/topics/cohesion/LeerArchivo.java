@@ -2,7 +2,6 @@ package org.example.topics.cohesion;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
-
 import java.io.File;
 import java.util.List;
 

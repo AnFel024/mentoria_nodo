@@ -1,12 +1,15 @@
-package org.example.domains.abstracts;
+package org.example.topics.abstracts.abstracts;
 
 /*
 * Modificadores aplican a clases (interfaces, abstractas),
 *   metodos, atributos, constructores
 * */
 
+import lombok.ToString;
+
 // Modificador public
-public abstract class Empleado {
+//@ToString
+public abstract class Empleado implements Trabajar {
 
   // Atributos
   private String name;
@@ -23,6 +26,7 @@ public abstract class Empleado {
     this.name = name;
     this.lastName = lastName;
     this.salary = salary;
+
   }
 
   // Metodos
@@ -59,12 +63,13 @@ public abstract class Empleado {
     return gratification;
   }
 
-  public abstract void practice();
+  //protected abstract void makeGratification();
 
-  public void practice(String name) {
-    System.out.println("El empleado " + name + " esta trabajando!");
+  public String toString() {
+    return "Empleado(name=" + this.getName()
+        + ", lastName=" + this.getLastName()
+        + ", salary=" + this.getSalary()
+        + ", gratification=" + this.getGratification()
+        + ")";
   }
-
-  protected abstract void makeGratification();
-
 }

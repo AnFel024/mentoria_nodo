@@ -1,4 +1,4 @@
-package org.example.topics.events;
+package org.example.topics.concurrency.threads.events;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ThreadLocalRandom;

@@ -1,13 +1,12 @@
 package org.example.topics.cohesion;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
-
-import java.io.File;
 import java.io.FileWriter;
 import java.util.List;
 
 public class ProcesadorNumeros {
+
+  public static final String NUMEROS_EJEMPLO_JSON = "numeros-ejemplo.json";
 
   /*
   * Problema
@@ -27,7 +26,7 @@ public class ProcesadorNumeros {
   @SneakyThrows
   public void execute() {
 
-    List<Double> numeros = leerArchivo.getList("numeros.json");
+    List<Double> numeros = leerArchivo.getList("numeros-ejemplo.json");
 
     // Crear archivos de salida
     FileWriter raizCuadradaWriter = new FileWriter("2_raiz_cuadrada.txt");

@@ -1,9 +1,8 @@
-package org.example.topics.events;
+package org.example.topics.concurrency.threads.events;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.*;
 
 public class EventoEjemplo {
   public static void main(String[] args) {

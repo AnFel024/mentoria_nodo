@@ -1,6 +1,6 @@
-package org.example.domains;
+package org.example.topics.abstracts;
 
-import org.example.domains.abstracts.Empleado;
+import org.example.topics.abstracts.abstracts.Empleado;
 
 public class Aseador extends Empleado {
 
@@ -10,7 +10,7 @@ public class Aseador extends Empleado {
   }
 
   @Override
-  protected void makeGratification() {
+  public void makeGratification() {
     super.setGratification(super.getSalary() * 10.0);
   }
 
